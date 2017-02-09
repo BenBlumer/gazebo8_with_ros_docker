@@ -1,0 +1,8 @@
+This has been tested using nvidia-docker -- a tool for using your nvidia graphics card to run X11 content on docker.
+
+First, set the appropriate privilidges: 
+    xhost +local:root
+
+Then run docker:
+    nvidia-docker run -it --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --privileged ros_ws
+
